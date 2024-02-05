@@ -1,13 +1,26 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "ui/build/**/*",
-        "use": "@vercel/static-build"
+  "builds": [
+    {
+      "src": "api/app.py",
+      "use": "@vercel/python"
+    },
+    {
+        "src": "/ui/build/*",
+        "use": "@now/static"
       }
-    ],
-    "routes": [
-      { "handle": "filesystem" },
-      { "src": "ui/.*", "dest": "ui/index.html" }
-    ]
-  }
+  ],
+  "routes": [
+    {
+      "src": "api/(.*)",
+      "dest": "api/app.py"
+    },
+    {
+      "src": "/ui/(.*)",
+      "dest": "/ui/build/$1"
+    },
+    {
+      "src": "/ui",
+      "dest": "/ui/build/index.html"
+    }
+  ]
+}
