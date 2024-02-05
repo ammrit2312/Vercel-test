@@ -3,12 +3,18 @@
     {
       "src": "api/app.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "ui/*",
+      "use": "@now/static"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "api/(.*)",
       "dest": "api/app.py"
-    }
+    },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "ui/build/index.html" }
   ]
 }
