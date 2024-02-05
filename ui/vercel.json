@@ -1,6 +1,6 @@
 {
   "functions": {
-    "../api/app.py": {
+    "api/app.py": {
       "runtime": "@vercel/python"
     }
   }
