@@ -5,16 +5,22 @@
       "use": "@vercel/python"
     },
     {
-      "src": "ui/*",
-      "use": "@now/node"
-    }
+        "src": "/ui/build/*",
+        "use": "@now/static"
+      }
   ],
   "routes": [
     {
       "src": "api/(.*)",
       "dest": "api/app.py"
     },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "ui/build/index.html" }
+    {
+      "src": "/ui/(.*)",
+      "dest": "/ui/build/$1"
+    },
+    {
+      "src": "/ui",
+      "dest": "/ui/build/index.html"
+    }
   ]
 }
