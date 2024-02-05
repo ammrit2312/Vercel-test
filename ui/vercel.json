@@ -1,5 +1,7 @@
 {
-  "scripts": {
-    "start": "python ../api/app.py"
+  "functions": {
+    "../api/app.py": {
+      "runtime": "@vercel/python"
+    }
   }
 }
