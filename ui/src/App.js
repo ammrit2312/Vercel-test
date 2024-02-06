@@ -1,7 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import {useEffect} from 'react';
 
 function App() {
+
+  useEffect(() => {
+    fetch('https://api.whywaste.io/')
+    .then((res) => res.json())
+    .then((data) => console.log("This is data ##", data));
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
